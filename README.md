@@ -14,6 +14,7 @@ Here are some ideas to get you started:
 - 😄 Pronouns: ...
 - ⚡ Fun fact: ...
 -->
---!>
 
 Here :
+- How to install snap7 on RaspberryPi
+- Python script for the waxmachine (RaspberryPi)
