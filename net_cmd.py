@@ -1,6 +1,7 @@
 import logging
 import snap7
 import time
+import csv
 import threading as th
 from threading import Timer
 from datetime import datetime
@@ -10,13 +11,49 @@ class RepeatTimer(Timer):
         while not self.finished.wait(self.interval):
             self.function(*self.args, **self.kwargs)
 
-def readTemperature() :
-    T = plc.read("VW1036")
-    print (T)
-    T = str(T)
-    with open('logs.txt', 'a') as f :
-        f.write(T)
-        f.write('\n')
+def write_data_to_csv(data):
+    # Get current time
+    now = datetime.now()
+    timestamp = now.strftime("%Y-%m-%d %H:%M:%S")
+
+    # Open CSV file for writing
+    with open("data.csv", "a", newline="") as csvfile:
+        # Create a writer object
+        writer = csv.DictWriter(csvfile, fieldnames=data.keys())
+
+        # Write header if the file is empty
+        if csvfile.tell() == 0:
+            writer.writeheader()
+
+        # Write data row
+        writer.writerow({**data, **{"timestamp": timestamp}})
+    
+def wax_read() :
+    tempInt1 = plc.read("VW1036")
+    #tempInt1 = str(tempInt1)
+    tempInt2 = plc.read("VW1038")
+    #tempInt2 = str(tempInt2)
+    tempExt = plc.read("VW1032")
+    #tempExt = str (tempExt)
+    pyrometer = plc.read("VW1040")
+    #pyrometer = str (pyrometer)
+    isopropanol = plc.read("VW1042")
+    #isopropanol = str(isopropanol)
+    stateTime = plc.read("V1104.2")
+    #stateTime = str (stateTime)
+    stateFree = plc.read("V1104.3")
+    #stateFree = str (stateFree)
+    data = {
+        "tempInt1": tempInt1,
+        "tempInt2": tempInt2,
+        "tempExt": tempExt,
+        "pyrometer": pyrometer,
+        "isopropanol": isopropanol,
+        "stateTime": stateTime,
+        "stateFree": stateFree
+    }
+    return data
+
 
 logging.basicConfig(level=logging.INFO)
 logger = logging.getLogger(__name__)
@@ -43,12 +80,8 @@ if plc.get_connected():
                 plc.write("V10.2", 1)
                 plc.write("V10.2", 0)
                 print ("Process starting")
-                currentDateTime = datetime.now()
-                currentDateTime = str(currentDateTime)
-                with open('logs.txt', 'a') as f:
-                    f.write(currentDateTime)
-                    f.write('\n')
-                timer = RepeatTimer(0.1, readTemperature)
+                timer.cancel()
+                timer = RepeatTimer(0.1, write_data_to_csv(wax_read))
                 timer.start()
             else :
                 print ("machine not unlocked, unlock machine first")
@@ -58,7 +91,8 @@ if plc.get_connected():
                 plc.write("V10.3", 0)
                 print ("Ready")
                 timer.cancel()
-                f.close()
+                timer = RepeatTimer(1, write_data_to_csv(wax_read))
+                timer.start()
             else :
                 print ("Process is not finished")
         elif ctrl == "up" :
@@ -80,15 +114,19 @@ if plc.get_connected():
             plc.write("V10.4", 1)
             plc.write("V10.4", 0)
             timer.cancel()
-            f.close()
+            timer = RepeatTimer(1, write_data_to_csv(wax_read))
+            timer.start()
         elif ctrl == "read" :
             T = plc.read("VW1036")
             print(T)
         elif ctrl == "exit" :
             exit = False
+        elif plc.read("V1104.2") :
+            timer.cancel()
+            timer = RepeatTimer(1, write_data_to_csv(wax_read))  #cette partie la elle pue la merde, a reprendre
+            timer.start()
         else :
             print ("Unknown command")
-
 else : logger.error("connection failed")
 plc.disconnect()
 logger.info("Disconnected")
