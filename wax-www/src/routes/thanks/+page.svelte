@@ -1,0 +1,50 @@
+<script>
+	import { Button } from 'flowbite-svelte';
+</script>
+
+<div class="body">
+	<div class="bg" />
+	<div class="message">
+		<h1>Thank you for using the Waxmachine!</h1>
+		<p>
+			Now please fill the feedback form to tell us more about your experience and what we can
+			improve.
+		</p>
+	</div>
+	<Button color="green">Give us your feedback</Button>
+	<p>Or</p>
+	<Button color="red">Report an issue</Button>
+</div>
+
+<style>
+	.body {
+		min-height: 100%;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		flex-direction: column;
+		gap: 2em;
+		padding: 2em;
+		box-sizing: border-box;
+	}
+	.bg {
+		position: absolute;
+		left: 0;
+		right: 0;
+		top: 0;
+		bottom: 0;
+		background: url(/images/bg2.jpeg);
+		background-position: center center;
+		background-size: cover;
+		opacity: 0.25;
+		z-index: -1;
+	}
+	h1 {
+		font-size: 1.4em;
+		margin-bottom: 1em;
+	}
+	.message {
+		text-align: center;
+		font-size: 1.1em;
+	}
+</style>
