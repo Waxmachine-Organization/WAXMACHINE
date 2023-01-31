@@ -41,13 +41,13 @@ def wax_read(plc):
     stateFree = plc.read("V1104.3")
     #stateFree = str (stateFree)
     data = {
+        "timestamp": datetime.now().strftime("%Y-%m-%d %H:%M:%S"),
         "tempInt1": tempInt1,
         "tempInt2": tempInt2,
         "tempExt": tempExt,
         "pyrometer": pyrometer,
         "isopropanol": isopropanol,
         "stateTime": stateTime,
-        "stateFree": stateFree,
-        "timestamp": datetime.now().strftime("%Y-%m-%d %H:%M:%S")
+        "stateFree": stateFree
     }
     return data
