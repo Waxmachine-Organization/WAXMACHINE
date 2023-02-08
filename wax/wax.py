@@ -14,8 +14,28 @@ def unlock(plc):
 
 
 def isFree(plc):
+    return plc.read("V1104.3")
+
+
+def isTimeFree(plc):
     return plc.read("V1104.2")
 
+
+def readIsopropanol(plc):
+    return plc.read("VW1042")
+
+
+def readIntTemp(plc):
+    return (plc.read("VW1036")+plc.read("VW1038"))/2
+
+
+def readExtTemp(plc):
+    return plc.read("VW1032")
+
+
+def readPyro(plc):
+    return plc.read("VW1042")
+    
 
 def begin(plc):
     # if plc.read("V1104.3"):
