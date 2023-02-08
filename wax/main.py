@@ -20,86 +20,88 @@ def home():
 
 @app.route("/unlock")
 def unlock():
-    print("Unlock called")
     wax.unlock(plc)
     return "OK"
 
 
 @app.route("/begin")
 def begin():
-    global timer
-    print("Begin called")
-    timer.cancel()
-    timer = RepeatTimer(0.1, lambda: write_data_to_csv(wax_read(plc)))
-    timer.start()
     wax.begin(plc)
     return "OK"
 
 
 @app.route("/end")
 def end():
-    global timer
-    print("End called")
-    timer.cancel()
-    timer = RepeatTimer(1, lambda: write_data_to_csv(wax_read(plc)))
-    timer.start()
     wax.end(plc)
     return "OK"
 
 
 @app.route("/up")
 def up():
-    print("Up called")
     wax.up(plc)
     return "OK"
 
 
 @app.route("/down")
 def down():
-    print("Down called")
     wax.down(plc)
     return "OK"
 
 
 @app.route("/stop")
 def stop():
-    print("Stop called")
     wax.stop(plc)
     return "OK"
 
 
 @app.route("/open")
 def open():
-    print("Open called")
     wax.open(plc)
     return "OK"
 
 
 @app.route("/close")
 def close():
-    print("Close called")
     wax.close(plc)
     return "OK"
 
 
 @app.route("/cancel")
 def cancel():
-    global timer
-    timer.cancel()
-    timer = RepeatTimer(1, lambda: write_data_to_csv(wax_read(plc)))
-    timer.start()
-    print("Cancel called")
     wax.cancel(plc)
     return "OK"
 
 
 @app.route("/isfree")
 def isfree():
-    print("IsFree called")
     return wax.isFree(plc)
+
+
+@app.route("/istimefree")
+def isTimeFree():
+    return wax.isTimeFree(plc)
+
+
+@app.route("/readisopropanol")
+def readIsopropanol():
+    return wax.readIsopropanol(plc)
+
+
+@app.route("/readinttemp")
+def readIntTemp():
+    return wax.readIntTemp(plc)
+
+
+@app.route("/readexttemp")
+def readExtTemp():
+    return wax.readExtTemp(plc)
+
+
+@app.route("/readpyro")
+def readPyro():
+    return wax.readPyro(plc)
 
 
 @app.route("/logs")
 def logs():
-    print("Logs called")
     return send_file("data.csv")
