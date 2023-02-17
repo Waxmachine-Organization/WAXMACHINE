@@ -2,6 +2,8 @@
 	import { Button, Progressbar } from 'flowbite-svelte';
 	import { onMount } from 'svelte';
 	import { goto } from '$app/navigation';
+	import { ensureUser, sessionId } from '../../stores/user';
+	import { wax } from '../../lib/wax';
 
 	let progress = 0;
 	let started = 0;
@@ -9,7 +11,7 @@
 	let start;
 
 	const begin = async () => {
-		await fetch('https://wax.eu.ngrok.io/begin');
+		await wax.begin();
 		started = true;
 		start = new Date();
 		interval = setInterval(() => {
@@ -19,11 +21,12 @@
 	};
 
 	const cancel = async () => {
-		await fetch('https://wax.eu.ngrok.io/cancel');
+		await wax.cancel();
 		goto('/thanks');
 	};
 
-	onMount(() => {
+	onMount(async () => {
+		await ensureUser($sessionId);
 		return () => {
 			clearInterval(interval);
 		};

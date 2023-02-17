@@ -11,9 +11,7 @@
 			improve.
 		</p>
 	</div>
-	<Button color="green">Give us your feedback</Button>
-	<p>Or</p>
-	<Button color="red">Report an issue</Button>
+	<Button color="green" href="https://forms.gle/zR5vuTXjYmsvsahX7">Give us your feedback</Button>
 </div>
 
 <style>

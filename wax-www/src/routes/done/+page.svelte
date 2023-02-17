@@ -1,9 +1,16 @@
 <script>
 	import { Button } from 'flowbite-svelte';
 	import { goto } from '$app/navigation';
+	import { ensureUser, sessionId } from '../../stores/user';
+	import { onMount } from 'svelte';
+	import { wax } from '../../lib/wax';
+
+	onMount(async () => {
+		await ensureUser($sessionId);
+	});
 
 	const lock = async () => {
-		await fetch('https://wax.eu.ngrok.io/end');
+		await wax.end();
 		goto('/thanks');
 	};
 </script>
