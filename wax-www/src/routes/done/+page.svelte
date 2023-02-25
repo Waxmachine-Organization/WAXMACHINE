@@ -4,6 +4,7 @@
 	import { ensureUser, sessionId } from '../../stores/user';
 	import { onMount } from 'svelte';
 	import { wax } from '../../lib/wax';
+	import { _ } from 'svelte-i18n';
 
 	onMount(async () => {
 		await ensureUser($sessionId);
@@ -18,11 +19,11 @@
 <div class="body">
 	<div class="bg" />
 	<div class="message">
-		<h1>Waxing done!</h1>
-		<p>The door is unlocked, you can open it and pick up your equipment.</p>
-		<p>Then close the door and</p>
+		<h1>{$_('done')}</h1>
+		<p>{$_('pickUp.1')}</p>
+		<p>{$_('pickUp.2')}</p>
 	</div>
-	<Button color="red" on:click={lock}>Lock back the machine</Button>
+	<Button color="red" on:click={lock}>{$_('lock')}</Button>
 </div>
 
 <style>

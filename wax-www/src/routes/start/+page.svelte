@@ -2,6 +2,7 @@
 	import { Button } from 'flowbite-svelte';
 	import { goto } from '$app/navigation';
 	import { wax } from '../../lib/wax';
+	import { _ } from 'svelte-i18n';
 
 	import { ensureUser, sessionId } from '../../stores/user';
 	import { onMount } from 'svelte';
@@ -18,7 +19,15 @@
 
 <div class="body">
 	<div class="bg" />
-	<Button color="dark" on:click={unlock}>Unlock Machine</Button>
+	<h2 class="text-xl">{$_('instructions')}</h2>
+	<ol class="list-decimal">
+		<li>{$_('instructions.1')}</li>
+		<li>{$_('instructions.2')}</li>
+		<li>{$_('instructions.3')}</li>
+		<li>{$_('instructions.4')}</li>
+		<li>{$_('instructions.5')}</li>
+	</ol>
+	<Button color="dark" on:click={unlock}>{$_('unlock')}</Button>
 </div>
 
 <style>
@@ -27,6 +36,8 @@
 		display: flex;
 		align-items: center;
 		justify-content: center;
+		flex-direction: column;
+		gap: 2em;
 	}
 	.bg {
 		position: absolute;

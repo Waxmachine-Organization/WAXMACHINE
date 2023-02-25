@@ -1,17 +1,17 @@
 <script>
 	import { Button } from 'flowbite-svelte';
+	import { _ } from 'svelte-i18n';
 </script>
 
 <div class="body">
 	<div class="bg" />
 	<div class="message">
-		<h1>Thank you for using the Waxmachine!</h1>
+		<h1>{$_('thanks')}</h1>
 		<p>
-			Now please fill the feedback form to tell us more about your experience and what we can
-			improve.
+			{$_('feedback')}
 		</p>
 	</div>
-	<Button color="green" href="https://forms.gle/zR5vuTXjYmsvsahX7">Give us your feedback</Button>
+	<Button color="green" href="https://forms.gle/zR5vuTXjYmsvsahX7">{$_('giveFeedback')}</Button>
 </div>
 
 <style>

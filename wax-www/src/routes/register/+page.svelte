@@ -5,6 +5,8 @@
 	import { sessionId, user, equipment } from '../../stores/user';
 	import { Input, Label } from 'flowbite-svelte';
 	import { rpc } from '../../lib/rpc';
+	import { _ } from 'svelte-i18n';
+
 	import toast from 'svelte-french-toast';
 
 	let brand, model, size;
@@ -52,23 +54,23 @@
 <div class="body">
 	<div class="bg" />
 	<div class="mb-6">
-		<Label for="email" class="mb-2">Brand</Label>
-		<Input bind:value={brand} type="text" id="text" placeholder="Brand" required />
+		<Label for="email" class="mb-2">{$_('brand')}</Label>
+		<Input bind:value={brand} type="text" id="text" placeholder={$_('brand')} required />
 	</div>
 	<div class="bg" />
 	<div class="mb-6">
-		<Label for="email" class="mb-2">Model</Label>
-		<Input bind:value={model} type="text" id="text" placeholder="Model" required />
+		<Label for="email" class="mb-2">{$_('model')}</Label>
+		<Input bind:value={model} type="text" id="text" placeholder={$_('model')} required />
 	</div>
 	<div class="bg" />
 	<div class="mb-6">
-		<Label for="email" class="mb-2">Size</Label>
-		<Input bind:value={size} type="text" id="text" placeholder="Size" required />
+		<Label for="email" class="mb-2">{$_('size')}</Label>
+		<Input bind:value={size} type="text" id="text" placeholder={$_('size')} required />
 	</div>
 	<div class="mb-6">
 		<ButtonGroup>
-			<Button color="alternative" size="md" on:click={back}>Back</Button>
-			<Button color="blue" size="md" on:click={register}>Register</Button>
+			<Button color="alternative" size="md" on:click={back}>{$_('cancel')}</Button>
+			<Button color="blue" size="md" on:click={register}>{$_('register')}</Button>
 		</ButtonGroup>
 	</div>
 </div>

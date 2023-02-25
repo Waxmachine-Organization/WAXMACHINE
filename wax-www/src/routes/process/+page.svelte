@@ -4,6 +4,7 @@
 	import { goto } from '$app/navigation';
 	import { ensureUser, sessionId } from '../../stores/user';
 	import { wax } from '../../lib/wax';
+	import { _ } from 'svelte-i18n';
 
 	let progress = 0;
 	let started = 0;
@@ -41,9 +42,9 @@
 	<div class="bg" />
 	<Progressbar color="green" {progress} />
 	{#if started}
-		<Button on:click={cancel} color="red">Cancel</Button>
+		<Button on:click={cancel} color="red">{$_('cancel')}</Button>
 	{:else}
-		<Button color="dark" on:click={begin}>Begin Process</Button>
+		<Button color="dark" on:click={begin}>{$_('begin')}</Button>
 	{/if}
 </div>
 

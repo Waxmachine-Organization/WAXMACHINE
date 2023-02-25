@@ -13,6 +13,7 @@
 	"model": "Model",
 	"size": "Size",
 	"unlock": "Unlock machine",
+	"begin": "Begin",
 	"instructions": "Instructions",
 	"instructions.1": "Activate the QR code to open the application",
 	"instructions.2": "Unlock the door via the application",
