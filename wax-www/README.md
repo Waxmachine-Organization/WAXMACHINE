@@ -17,3 +17,7 @@ npm run dev -- --open
 
 Inner pages of the app are in the `src/routes` directory. Each "page" makes a specific
 call to the Wax Machine Server and loads the next page.
+
+## Deploy
+
+CI/CD is setup for Vercel; push to the main branch to deploy to production, push to any other branch to get a preview deployment.
