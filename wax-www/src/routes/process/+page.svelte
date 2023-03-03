@@ -48,7 +48,7 @@
 			<li>{$_('instructions.3')}</li>
 			<li>{$_('instructions.4')}</li>
 			<li>{$_('instructions.5')}</li>
-	    </ol>
+		</ol>
 		<Button color="dark" on:click={begin}>{$_('begin')}</Button>
 	{/if}
 </div>
