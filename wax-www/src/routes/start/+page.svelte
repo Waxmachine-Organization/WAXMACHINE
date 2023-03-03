@@ -21,11 +21,7 @@
 	<div class="bg" />
 	<h2 class="text-xl">{$_('instructions')}</h2>
 	<ol class="list-decimal">
-		<li>{$_('instructions.1')}</li>
 		<li>{$_('instructions.2')}</li>
-		<li>{$_('instructions.3')}</li>
-		<li>{$_('instructions.4')}</li>
-		<li>{$_('instructions.5')}</li>
 	</ol>
 	<Button color="dark" on:click={unlock}>{$_('unlock')}</Button>
 </div>
