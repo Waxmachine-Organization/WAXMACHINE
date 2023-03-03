@@ -44,6 +44,11 @@
 	{#if started}
 		<Button on:click={cancel} color="red">{$_('cancel')}</Button>
 	{:else}
+		<ol class="list-decimal">
+			<li>{$_('instructions.3')}</li>
+			<li>{$_('instructions.4')}</li>
+			<li>{$_('instructions.5')}</li>
+	    </ol>
 		<Button color="dark" on:click={begin}>{$_('begin')}</Button>
 	{/if}
 </div>
