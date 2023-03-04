@@ -11,7 +11,7 @@
 	let interval;
 	let start;
 
-	const PROCESS_DURATION = 90000; // 90 seconds
+	const PROCESS_DURATION = 270000; // 90 seconds
 
 	const begin = async () => {
 		await wax.begin();
