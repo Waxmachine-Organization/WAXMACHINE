@@ -11,13 +11,15 @@
 	let interval;
 	let start;
 
+	const PROCESS_DURATION = 90000; // 90 seconds
+
 	const begin = async () => {
 		await wax.begin();
 		started = true;
 		start = new Date();
 		interval = setInterval(() => {
 			const millis = new Date().valueOf() - start.valueOf();
-			progress = Math.min(Math.floor(millis / 900), 100);
+			progress = Math.min(Math.floor(millis / (PROCESS_DURATION / 100)), 100);
 		}, 1000);
 	};
 
