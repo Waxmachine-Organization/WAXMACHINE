@@ -46,6 +46,10 @@
 	{#if started}
 		<Button on:click={cancel} color="red">{$_('cancel')}</Button>
 	{:else}
+	    <video autoplay loop>
+		    <source src={url(/videos/WAX1.mp4)} type="video/mp4">
+		    Votre navigateur ne prend pas en charge les vidéos HTML5.
+	    </video>
 		<ol class="list-decimal">
 			<li>{$_('instructions.3')}</li>
 			<li>{$_('instructions.4')}</li>
