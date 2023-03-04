@@ -1,7 +1,6 @@
 const fetchEndpoint = (endpoint) => async () => {
 	const res = await fetch(`https://wax.eu.ngrok.io/${endpoint}`);
-	const json = await res.json();
-	return json;
+	return res.ok;
 };
 
 const endpoints = [
