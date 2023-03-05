@@ -47,7 +47,7 @@
 		<Button on:click={cancel} color="red">{$_('cancel')}</Button>
 	{:else}
 		<video width="170" height="500" autoplay loop>
-			<source src="https://github.com/Waxmachine-Organization/WAXMACHINE/blob/main/wax-www/static/videos/WAX1.mp4?raw=true>
+			<source src="https://github.com/Waxmachine-Organization/WAXMACHINE/blob/main/wax-www/static/videos/WAX1.mp4?raw=true" type="video/mp4">
 		</video>
 		<ol class="list-decimal">
 			<li>{$_('instructions.3')}</li>
