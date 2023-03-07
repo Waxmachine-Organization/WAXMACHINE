@@ -11,7 +11,7 @@
 	let interval;
 	let start;
 
-	const PROCESS_DURATION = 270000; // 270 secondes
+	const PROCESS_DURATION = 265000; // 265 secondes
 
 	const begin = async () => {
 		await wax.begin();
@@ -46,7 +46,7 @@
 	{#if started}
 		<Button on:click={cancel} color="red">{$_('cancel')}</Button>
 	{:else}
-		<video width="170" height="500" autoplay loop>
+		<video width="300" height="500" autoplay loop>
 			<source src="https://github.com/Waxmachine-Organization/WAXMACHINE/blob/main/wax-www/static/videos/WAX1.mp4?raw=true" type="video/mp4">
 		</video>
 		<ol class="list-decimal">
