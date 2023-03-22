@@ -29,7 +29,7 @@
 	};
 
 	function remainingTime() {
-         const elapsedTime = new Date() - start;
+        const elapsedTime = new Date() - start;
         const remainingMillis = PROCESS_DURATION - elapsedTime;
         const remainingSecs = Math.ceil(remainingMillis / 1000);
         const remainingMins = Math.floor(remainingSecs / 60);
