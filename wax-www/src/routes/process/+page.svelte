@@ -29,13 +29,13 @@
 	};
 
 	function remainingTime() {
-    	const elapsedTime = new Date() - start;
-    	const remainingMillis = PROCESS_DURATION - elapsedTime;
-    	const remainingSecs = Math.ceil(remainingMillis / 1000);
-    	const remainingMins = Math.floor(remainingSecs / 60);
-    	const remainingSecsMod60 = remainingSecs % 60;
-    	return `${remainingMins}:${remainingSecsMod60 < 10 ? "0" : ""}${remainingSecsMod60}`;
-  	};
+         const elapsedTime = new Date() - start;
+        const remainingMillis = PROCESS_DURATION - elapsedTime;
+        const remainingSecs = Math.ceil(remainingMillis / 1000);
+        const remainingMins = Math.floor(remainingSecs / 60);
+        const remainingSecsMod60 = remainingSecs % 60;
+        return `${remainingMins}:${remainingSecsMod60 < 10 ? "0" : ""}${remainingSecsMod60}`;
+    };
 
 	onMount(async () => {
 		await ensureUser($sessionId);
