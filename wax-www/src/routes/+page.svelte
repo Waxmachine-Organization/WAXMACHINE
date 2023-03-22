@@ -76,14 +76,14 @@
 		<Label for="password" class="mb-2">{$_('password')}</Label>
 		<Input bind:value={password} type="password" id="password" placeholder="•••••••••" required />
 	</div>
-    <div>
-	    <p>{$_('instructionsRegister')}</p>
-	</div>
 	<div class="mb-6">
 		<ButtonGroup>
 			<Button color="blue" size="md" on:click={userSignIn}>{$_('signIn')}</Button>
 			<Button color="alternative" size="md" on:click={userSignUp}>{$_('signUp')}</Button>
 		</ButtonGroup>
+	</div>
+	<div>
+	    <p>{$_('instructionsRegister')}</p>
 	</div>
 </div>
 
