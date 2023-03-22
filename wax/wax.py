@@ -82,3 +82,8 @@ def cancel(plc):
 def destroy(plc):
     plc.disconnect()
     plc.destroy()
+
+
+def reset(plc):
+    plc.write("V11.1", 1)
+    plc.write("V11.1", 0)

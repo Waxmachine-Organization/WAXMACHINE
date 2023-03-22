@@ -105,3 +105,8 @@ def readPyro():
 @app.route("/logs")
 def logs():
     return send_file("data.csv")
+
+@app.route("/reset")
+def reset():
+    wax.reset(plc)
+    return "OK"
