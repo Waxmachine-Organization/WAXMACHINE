@@ -46,13 +46,15 @@
 	{#if started}
 		<Button on:click={cancel} color="red">{$_('cancel')}</Button>
 	{:else}
+		<div class="bg" />
+		<h2 class="text-xl">{$_('instructions')}</h2>
 		<video width="220" height="500" autoplay loop>
 			<source src="https://github.com/Waxmachine-Organization/WAXMACHINE/blob/main/wax-www/static/videos/WAX1.mp4?raw=true" type="video/mp4">
 		</video>
 		<ol class="list-decimal">
+			<li>{$_('instructions.6')}</li>
 			<li>{$_('instructions.3')}</li>
 			<li>{$_('instructions.4')}</li>
-			<li>{$_('instructions.5')}</li>
 		</ol>
 		<Button color="dark" on:click={begin}>{$_('begin')}</Button>
 	{/if}
