@@ -20,9 +20,6 @@
 <div class="body">
 	<div class="bg" />
 	<h2 class="text-xl">{$_('instructions')}</h2>
-	<ol class="list-decimal">
-		<li>{$_('instructions.2')}</li>
-	</ol>
 	<Button color="dark" on:click={unlock}>{$_('unlock')}</Button>
 </div>
 
