@@ -21,8 +21,8 @@
 
 <div class="body">
 	<div class="bg" />
-	<Button color="dark" on:click={start}>{$_('start')}</Button>
 	<Button color="dark" href="/register">{$_('registerEquipment')}</Button>
+	<Button color="dark" on:click={start}>{$_('start')}</Button>
 </div>
 
 <style>
