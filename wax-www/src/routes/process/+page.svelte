@@ -61,6 +61,7 @@
 		<h2 class="text-xl">{$_('instructions')}</h2>
 		<video width="220" height="500" autoplay loop>
 			<source src="https://github.com/Waxmachine-Organization/WAXMACHINE/blob/main/wax-www/static/videos/WAX1.mp4?raw=true" type="video/mp4">
+		    Your browser does not support the video tag.
 		</video>
 		<ol class="list-decimal">
 			<li>{$_('instructions.6')}</li>
