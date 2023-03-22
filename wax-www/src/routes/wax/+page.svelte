@@ -7,11 +7,12 @@
 	import toast from 'svelte-french-toast';
 	import { _ } from 'svelte-i18n';
 
-	const start = () => {
+	const start = async () => {
 		if (!$equipment.length) {
 			return toast.error(_('registerFirst'));
 		}
-		goto('/start');
+		await wax.unlock();
+		goto('/process');
 	};
 
 	onMount(async () => {
