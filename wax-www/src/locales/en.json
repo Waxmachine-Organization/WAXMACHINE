@@ -27,7 +27,7 @@
 	"giveFeedback": "Give us feedback",
 	"thanks": "Thank you for using the Waxmachine!",
 	"feedback": "Now please fill the feedback form to tell us more about your experience and what we can improve.",
-	"instructionsRegister": "Enter an email and a password to create the account",
-	"instructionsEquipment": "Register your equipment before waxing",
+	"instructionsRegister": "You must enter an email and a password to create the account",
+	"instructionsEquipment": "You must register your equipment before waxing",
 	"instructions.6": "Open the door until you reach the stopper"
 }
