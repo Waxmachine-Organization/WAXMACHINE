@@ -88,7 +88,7 @@
 		right: 0;
 		top: 0;
 		bottom: 0;
-		background: url(/images/bg2.jpeg);
+		background-color: aqua;
 		background-position: center center;
 		background-size: cover;
 		opacity: 0.25;
