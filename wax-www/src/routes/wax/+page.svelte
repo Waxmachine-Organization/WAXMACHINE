@@ -46,7 +46,7 @@
 		right: 0;
 		top: 0;
 		bottom: 0;
-		background: url(/images/bg1.jpeg);
+		background: url(/images/bg3.jpeg);
 		background-position: center center;
 		background-size: cover;
 		opacity: 0.25;
