@@ -7,7 +7,7 @@
 	import { _ } from 'svelte-i18n';
 
 	let progress = 0;
-	let started = 1;
+	let started = 0;
 	let interval;
 	let start;
 
