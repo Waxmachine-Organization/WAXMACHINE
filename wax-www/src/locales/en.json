@@ -17,8 +17,8 @@
 	"instructions": "Instructions",
 	"instructions.1": "Activate the QR code to open the application",
 	"instructions.2": "Unlock the door via the application",
-	"instructions.3": "Open the door and place your board/Skis inside the machine, base facing you, between the sliding tracks, as explained in the video",
-	"instructions.4": "Close the door and start waxing from the app",
+	"instructions.3": "Place your board/skis inside the machine, base facing you, as shown",
+	"instructions.4": "Start waxing with the button below",
 	"instructions.5": "Wait 5 min, pick up your equipment, and have fun!",
 	"done": "Waxing done!",
 	"pickUp.1": "The door is unlocked, you can open it and pick up your equipment.",
@@ -26,5 +26,8 @@
 	"lock": "Lock back the machine",
 	"giveFeedback": "Give us feedback",
 	"thanks": "Thank you for using the Waxmachine!",
-	"feedback": "Now please fill the feedback form to tell us more about your experience and what we can improve."
+	"feedback": "Now please fill the feedback form to tell us more about your experience and what we can improve.",
+	"instructionsRegister": "Enter an email and a password to create the account",
+	"instructionsEquipment": "Register your equipment before waxing",
+	"instructions.6": "Open the door until you reach the stopper"
 }
