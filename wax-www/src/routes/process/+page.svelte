@@ -28,15 +28,14 @@
 		goto('/thanks');
 	};
 
-	const remainingTime = () => {
-		const elapsedTime = new Date().valueOf() - start.valueOf();
-		const remainingMillis = PROCESS_DURATION - elapsedTime;
-		const remainingSecs = Math.ceil(remainingMillis / 1000);
-		const remainingMins = Math.floor(remainingSecs / 60);
-		const remainingSecsMod60 = remainingSecs % 60;
-		return `${remainingMins}:${remainingSecsMod60 < 10 ? "0" : ""}${remainingSecsMod60}`;
-	};
-
+	function remainingTime() {
+    	const elapsedTime = new Date() - start;
+    	const remainingMillis = PROCESS_DURATION - elapsedTime;
+    	const remainingSecs = Math.ceil(remainingMillis / 1000);
+    	const remainingMins = Math.floor(remainingSecs / 60);
+    	const remainingSecsMod60 = remainingSecs % 60;
+    	return `${remainingMins}:${remainingSecsMod60 < 10 ? "0" : ""}${remainingSecsMod60}`;
+  	};
 
 	onMount(async () => {
 		await ensureUser($sessionId);
@@ -52,9 +51,10 @@
 
 <div class="body">
 	<div class="bg" />
-	<p>{remainingTime()} remaining</p>
-	<Progressbar color="green" {progress} />
 	{#if started}
+		<div class="bg" />
+		<p>{remainingTime()}</p>
+		<Progressbar color="green" {progress} />
 		<Button on:click={cancel} color="red">{$_('cancel')}</Button>
 	{:else}
 		<div class="bg" />
