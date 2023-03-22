@@ -12,7 +12,7 @@
 		if (!$equipment.length) {
 			return toast.error(_('registerFirst'));
 		}
-		await wax.unlock();
+		//await wax.unlock();
 		goto('/process');
 	};
 
