@@ -53,7 +53,7 @@
 	<div class="bg" />
 	{#if started}
 		<div class="bg" />
-		<p>{remainingTime()}</p>
+		<h2 class="text-xl">{remainingTime()}</h2>
 		<Progressbar color="green" {progress} />
 		<Button on:click={cancel} color="red">{$_('cancel')}</Button>
 	{:else}
