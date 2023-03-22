@@ -6,6 +6,7 @@
 	import { goto } from '$app/navigation';
 	import toast from 'svelte-french-toast';
 	import { _ } from 'svelte-i18n';
+	import { wax } from '../../lib/wax';
 
 	const start = async () => {
 		if (!$equipment.length) {
