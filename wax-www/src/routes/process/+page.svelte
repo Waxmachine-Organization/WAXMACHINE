@@ -1,15 +1,16 @@
 <script>
 	import { Button, Progressbar } from 'flowbite-svelte';
-	import { onMount } from 'svelte';
+	import { onMount, onDestroy } from 'svelte';
 	import { goto } from '$app/navigation';
 	import { ensureUser, sessionId } from '../../stores/user';
 	import { wax } from '../../lib/wax';
 	import { _ } from 'svelte-i18n';
 
 	let progress = 0;
-	let started = 0;
+	let started = false;
 	let interval;
 	let start;
+	let remaining;
 
 	const PROCESS_DURATION = 265000; // 265 secondes
 
@@ -20,6 +21,7 @@
 		interval = setInterval(() => {
 			const millis = new Date().valueOf() - start.valueOf();
 			progress = Math.min(Math.floor(millis / (PROCESS_DURATION / 100)), 100);
+			remaining = remainingTime();
 		}, 1000);
 	};
 
@@ -29,19 +31,20 @@
 	};
 
 	function remainingTime() {
-        const elapsedTime = new Date() - start;
-        const remainingMillis = PROCESS_DURATION - elapsedTime;
-        const remainingSecs = Math.ceil(remainingMillis / 1000);
-        const remainingMins = Math.floor(remainingSecs / 60);
-        const remainingSecsMod60 = remainingSecs % 60;
-        return `${remainingMins}:${remainingSecsMod60 < 10 ? "0" : ""}${remainingSecsMod60}`;
-    };
+		const elapsedTime = new Date() - start;
+		const remainingMillis = PROCESS_DURATION - elapsedTime;
+		const remainingSecs = Math.ceil(remainingMillis / 1000);
+		const remainingMins = Math.floor(remainingSecs / 60);
+		const remainingSecsMod60 = remainingSecs % 60;
+		return `${remainingMins}:${remainingSecsMod60 < 10 ? "0" : ""}${remainingSecsMod60}`;
+	};
 
 	onMount(async () => {
 		await ensureUser($sessionId);
-		return () => {
-			clearInterval(interval);
-		};
+	});
+
+	onDestroy(() => {
+		clearInterval(interval);
 	});
 
 	$: if (progress === 100) {
@@ -53,7 +56,7 @@
 	<div class="bg" />
 	{#if started}
 		<div class="bg" />
-		<h2 class="text-xl">{remainingTime()}</h2>
+		<h2 class="text-xl">{remaining}</h2>
 		<Progressbar color="green" {progress} />
 		<Button on:click={cancel} color="red">{$_('cancel')}</Button>
 	{:else}
