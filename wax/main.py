@@ -13,6 +13,7 @@ timer.start()
 CORS(app)
 
 
+
 @app.route("/")
 def home():
     return "Nothing here"
