@@ -18,3 +18,6 @@ Here are some ideas to get you started:
 Here :
 - How to install snap7 on RaspberryPi
 - Python script for the waxmachine (RaspberryPi)
+
+To begin with, we'd need to copy this whole repository inside the Raspberry Pi, and name the device admin.
+It'd be at the path /home/admin/wax-server/
